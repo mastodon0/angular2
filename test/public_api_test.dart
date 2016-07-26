@@ -1,6 +1,7 @@
 @TestOn('browser')
 library angular2.test.public_api_test;
 
+import "package:angular2/platform/common.dart";
 import "package:angular2/src/facade/lang.dart"
     show IS_DART, RegExpWrapper, StringWrapper;
 import "symbol_inspector/symbol_inspector.dart" show getSymbolsFromLibrary;
@@ -13,7 +14,7 @@ import "package:test/test.dart";
 // =============================================================================
 //
 // DO NOT EDIT THIS LIST OF PUBLIC APIS UNLESS YOU GET IT CLEARED BY:
-// mhevery, ferhat, or matanl!
+// ferhat, or matanl!
 //
 // =============================================================================
 // =============================================================================
@@ -202,6 +203,7 @@ var NG_CORE = [
   "NgZoneError",
   "NoAnnotationError",
   "NoProviderError",
+  "noValueProvided",
   "OpaqueToken",
   "Optional",
   "OptionalMetadata",
@@ -349,6 +351,12 @@ main() {
   ')} ]`);
    */
   group("public API", () {
+    test(
+        'Reference Location class to eliminate analyzer warning on unused '
+        'package:angular2/platform/common.dart import', () {
+      expect(Location, isNotNull);
+    });
+
     var barrelList = [
       "ngCommon",
       "ngCompiler",
