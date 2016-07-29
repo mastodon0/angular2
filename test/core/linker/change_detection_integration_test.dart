@@ -8,7 +8,6 @@ import "package:angular2/src/facade/collection.dart" show StringMapWrapper;
 import "package:angular2/src/core/change_detection/change_detection.dart"
     show PipeTransform, ChangeDetectionStrategy, WrappedValue;
 import "package:angular2/src/core/metadata/lifecycle_hooks.dart" show OnDestroy;
-import "package:angular2/src/facade/lang.dart" show IS_DART;
 import "package:angular2/src/facade/async.dart" show EventEmitter;
 import "package:angular2/core.dart"
     show
@@ -138,7 +137,7 @@ main() {
         expect(_bindAndCheckSimpleValue("1 != 1"), ["someProp=false"]);
       }));
       test("should support == operations on coerceible", fakeAsync(() {
-        var expectedValue = IS_DART ? "false" : "true";
+        var expectedValue = "false";
         expect(_bindAndCheckSimpleValue("1 == true"),
             ['''someProp=${ expectedValue}''']);
       }));
